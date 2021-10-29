@@ -17,8 +17,8 @@ on:
 
   #star
   
-  schedule:
-    - cron: 0 8 * * 5
+  #schedule:
+    #- cron: 0 8 * * 5
   
   #watch:
   #  types: [started]
@@ -114,7 +114,7 @@ jobs:
 
     - name: Configuration Customization - pine64-4.9 for lieonl
       env:
-        CONFIG_FILE: 'pine64-4.9 for lieonl.config'
+        CONFIG_FILE: 'pine64-lieonl.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x ./customize.sh && ./customize.sh
@@ -137,4 +137,4 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         name: OpenWrt
-        path: openwrt/bin/targets
+        path: openwrt/bin
