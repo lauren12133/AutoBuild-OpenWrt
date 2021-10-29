@@ -137,4 +137,4 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         name: OpenWrt
-        path: openwrt/bin/targets/sunxi/cortexa53
+        path: openwrt/bin/targets
