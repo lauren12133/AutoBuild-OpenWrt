@@ -79,7 +79,7 @@ jobs:
       run: |
         cd openwrt/package
         git clone https://github.com/aa65535/openwrt-redsocks2.git
-        git clone https://github.com/kuoruan/openwrt-upx.git
+        #git clone https://github.com/kuoruan/openwrt-upx.git
         cd lean
         git clone https://github.com/jerrykuku/lua-maxminddb.git  #git lua-maxminddb 依赖
         git clone https://github.com/jerrykuku/luci-app-vssr.git
