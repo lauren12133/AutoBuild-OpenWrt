@@ -17,11 +17,11 @@ on:
 
   ##star
   
-  #schedule:
-    #- cron: 0 8 * * 3
+  schedule:
+    - cron: 0 8 * * 3
   
-  #watch:
-    #types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:
