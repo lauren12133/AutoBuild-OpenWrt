@@ -71,9 +71,9 @@ jobs:
     - name: Update feeds.conf.default
       run: |
         cd openwrt
-        echo " #18.06" >> ./feeds.conf.default
+        echo " #21.02" >> ./feeds.conf.default
         echo "src-git ssrp https://github.com/fw876/helloworld.git" >> ./feeds.conf.default
-        
+        echo "src-git passwall https://github.com/songchenwen/openwrt-package/tree/master/lienol/luci-app-passwall" >> ./feeds.conf.default
         
     - name: Update & Install feeds
       working-directory: ./openwrt
