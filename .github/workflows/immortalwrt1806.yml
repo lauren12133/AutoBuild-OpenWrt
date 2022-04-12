@@ -5,23 +5,23 @@
 # Youtube Channel: https://goo.gl/fvkdwm 
 #=================================================
 
-name: immortalwrt1806 x86
+name: lieonl5.4-x86
 
 on: 
   release:
     types: [published]
 
-  #push:
-    #branches: 
-      #- master
+  push:
+    branches: 
+      - master
 
-  #star
+  ##star
   
   #schedule:
-    #- cron: 0 8 * * 3
+    - cron: 0 8 * * 3
   
-  #watch:
-    #types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:
@@ -35,6 +35,7 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
+        set +e
         docker rmi `docker images -q`
         echo "Deleting files, please wait ..."
         sudo rm -rf \
@@ -54,14 +55,15 @@ jobs:
           openjdk* \
           mysql* \
           php*
-        sudo -E apt-get update 
-        sudo -E apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs gcc-multilib g++-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx-ucl libelf-dev autoconf automake libtool autopoint device-tree-compiler ccache xsltproc rename antlr3 gperf wget curl swig rsync
+        sudo -E apt-get update
+        sudo -E apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
         sudo -E apt-get -y autoremove --purge
         sudo -E apt-get clean
+        
     - name: Clone source code
       env: 
-        REPO_URL: https://github.com/immortalwrt/immortalwrt
-        REPO_BRANCH: openwrt-18.06
+        REPO_URL: https://github.com/immortalwrt/immortalwrt/tree/openwrt-21.02
+        REPO_BRANCH: openwrt-21.02
         TZ: Asia/Shanghai
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
