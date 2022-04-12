@@ -62,7 +62,7 @@ jobs:
         
     - name: Clone source code
       env: 
-        REPO_URL: https://github.com/immortalwrt/immortalwrt/tree/openwrt-21.02
+        REPO_URL: https://github.com/immortalwrt/immortalwrt
         REPO_BRANCH: openwrt-21.02
         TZ: Asia/Shanghai
       run: |
